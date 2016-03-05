@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy import ndimage as ndi
 from skimage import feature
 from skimage import io
@@ -6,8 +7,9 @@ from skimage import io
 img = io.imread("../../img/gs-blur-dd-male2.jpg", flatten=True)
 edges1 = feature.canny(img)
 edges2 = feature.canny(img, sigma=4.5)
+out = np.uint8(edges2 * 255)
 
-io.imsave('test.jpg', edges2)
+io.imsave('test.jpg', out)
 
 # display results
 fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(8, 3), sharex=True, sharey=True)
