@@ -1,17 +1,16 @@
-#include "magickal.h"
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
 int main(int argc, char** argv) {
-  BPYoga::Magickal magickal;
-  magickal.from(argv[1]);
-  magickal.colorspace("gray");
-  magickal.edge(2);
-  magickal.background("black");
-  magickal.flatten();
-  magickal.negate();
-  magickal.kuwahara(2);
-  magickal.to(argv[2]);
-  
+  ostringstream oss;
+  oss << "convert img/" << argv[1] << " -colorspace gray -edge 2 "
+      << "-background black -flatten -kuwahara 2 "
+      << "img/gs-blur-" << argv[1];
+
+
+  system(oss.str().c_str());
   return 0;
 }

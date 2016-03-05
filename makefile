@@ -1,2 +1,2 @@
-imggsblur: src/gsblur.cpp src/magickal.hpp
+imggsblur: src/gsblur.cpp
 	g++ src/gsblur.cpp -o build/gsblur.x
