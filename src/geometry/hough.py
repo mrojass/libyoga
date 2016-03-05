@@ -9,8 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #
-image1 = imread("../../img/gs-blur-dd-male.jpg", flatten=True)
-image2 = imread("../../img/gs-blur-dd-male2.jpg", flatten=True)
+image1 = imread("../../img/dd-male2.jpg", flatten=True)
+image2 = imread("../../img/gs-edge-blur-male2.jpg", flatten=True)
 image3 = imread("../../img/gs-edge-male2.jpg", flatten=True)
 
 h, theta, d = hough_line(image1)

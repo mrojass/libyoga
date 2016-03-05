@@ -4,12 +4,12 @@ from scipy import ndimage as ndi
 from skimage import feature
 from skimage import io
 
-img = io.imread("../../img/gs-blur-dd-male2.jpg", flatten=True)
+img = io.imread("../../img/dd-male2.jpg", flatten=True)
 edges1 = feature.canny(img)
 edges2 = feature.canny(img, sigma=4.5)
 out = np.uint8(edges2 * 255)
 
-io.imsave('test.jpg', out)
+io.imsave('../../img/gs-edge-male2.jpg', out)
 
 # display results
 fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(8, 3), sharex=True, sharey=True)
