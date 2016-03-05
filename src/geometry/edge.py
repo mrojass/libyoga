@@ -3,8 +3,8 @@ import numpy as np
 from scipy import ndimage as ndi
 from skimage import feature
 from skimage import io
-
-import sys, getopt
+import sys
+import getopt
 
 VALUE_SIGMA = 4.5
 

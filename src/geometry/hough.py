@@ -14,8 +14,12 @@ def lines(base, test):
     """
     Reads two images of yoga poses and compares them.
     """
-    image1 = imread("../../img/partner-A/gs-edge-females.jpg", flatten=True)
-    image2 = imread("../../img/gs-edge-jarrod-deanna.jpg", flatten=True)
+    image1 = imread(base, flatten=True)
+    image2 = imread(test, flatten=True)
+
+    # Angles
+    a1 = []
+    a2 = []
 
     # Generate figure and 2 axes from matplotlib
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4))
@@ -30,6 +34,7 @@ def lines(base, test):
         y0 = (dist - 0 * np.cos(angle)) / np.sin(angle)
         y1 = (dist - cols * np.cos(angle)) / np.sin(angle)
         print degrees(angle)
+        a1.append(degrees(angle))
         ax1.plot((0, cols), (y0, y1), '-r')
 
     ax1.axis((0, cols, rows, 0))
@@ -47,6 +52,7 @@ def lines(base, test):
         y0 = (dist - 0 * np.cos(angle)) / np.sin(angle)
         y1 = (dist - cols * np.cos(angle)) / np.sin(angle)
         print degrees(angle)
+        a2.append(degrees(angle))
         ax2.plot((0, cols), (y0, y1), '-r')
 
     ax2.axis((0, cols, rows, 0))
@@ -54,3 +60,4 @@ def lines(base, test):
     ax2.set_axis_off()
 
     plt.show()
+    return a1, a2
