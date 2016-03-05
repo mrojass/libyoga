@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "HTTP REST API for using the libyoga Python library over the web. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/th13/libyoga.git"
+  },
+  "keywords": [
+    "libyoga",
+    "yoga",
+    "rest",
+    "api"
+  ],
+  "author": "Trevor Helms",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/th13/libyoga/issues"
+  },
+  "homepage": "https://github.com/th13/libyoga#readme",
+  "dependencies": {
+    "hapi": "^13.0.0",
+    "inert": "^3.2.0"
+  }
+}
