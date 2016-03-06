@@ -1,3 +1,4 @@
+
 """
 Module for applying straight line Hough transformations to processed images (
 specifically ones that have been processed with a Canny edge detection
@@ -8,6 +9,10 @@ import numpy as np
 from skimage.transform import (hough_line, hough_line_peaks)
 from skimage.io import imread
 import matplotlib.pyplot as plt
+import sys
+
+def main():
+    lines(sys.argv[1], sys.argv[2])
 
 
 def lines(base, test):
@@ -119,12 +124,21 @@ def lines(base, test):
     # print sorted(a2, key=float)
     # print group2_a2
     # print group3_a2
+    avg_down = -1
+    avg_up =-1
+    
+    base_down = reduce(lambda x, y: x + y, group2_a1) / float(len(group2_a1))
+    if len(group2_a2) > 0:
+        avg_down = reduce(lambda x, y: x + y, group2_a2) / float(len(group2_a2))
+    base_up = reduce(lambda x, y: x + y, group3_a1) / float(len(group3_a1))
+    if len(group3_a2) > 0:
+        avg_up = reduce(lambda x, y: x + y, group3_a2) / float(len(group3_a2))
 
-    print "BASE DOWN: " + str(reduce(lambda x, y: x + y, group2_a1) / float(len(group2_a1)))
-    print "USER DOWN: " + str(reduce(lambda x, y: x + y, group2_a2) / float(len(group2_a2)))
+    print "BASE DOWN: " + str(base_down)
+    print "USER DOWN: " + str(avg_down)
 
-    print "BASE UP: " + str(reduce(lambda x, y: x + y, group3_a1) / float(len(group3_a1)))
-    print "USER UP: " + str(reduce(lambda x, y: x + y, group3_a2) / float(len(group3_a2)))
+    print "BASE UP: " + str(base_up)
+    print "USER UP: " + str(avg_up)
 
     ax2.axis((0, cols, rows, 0))
     ax2.set_title('Detected lines')
@@ -132,3 +146,6 @@ def lines(base, test):
 
     plt.show()
     return a1, a2
+
+if __name__ == '__main__':
+    main()
