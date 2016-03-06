@@ -6,7 +6,7 @@ from skimage import io
 import sys
 import getopt
 
-VALUE_SIGMA = 4.5
+VALUE_SIGMA = 5
 
 def main(argv):
     ifile = ''
